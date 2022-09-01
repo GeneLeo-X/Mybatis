@@ -1,0 +1,10 @@
+sqlMApConfig.xml:全局配置文件
+    内容包含：
+    1）（environment）jdbc.properties内数据（避免硬编码）
+        jdbc.properties内包含：
+            driver、url、username、password
+
+    2）（mapper）Mapper配置文件：
+        namespace：接口开发模式的接口
+        接口方法内具体的sql语句（id：接口的某一方法的名称、resultType：方法的返回值类的地址（索引））
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--
+        resource="在当前项目下查找"
+
+        url="查找 "
+    -->
+    <properties resource="jdbc.properties"></properties>
+    <!-- settings -->
+    <settings>
+        <!-- 是否开启驼峰命名自动映射 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!-- 别名 配置 将类名地址使用别名替代-->
+    <typeAliases>
+        <!-- 单独配置 -->
+        <!--<typeAlias type="com.lixiuchun.pojo.Employee" alias="emp"></typeAlias>-->
+        <!--将com.lixiuchun.pojo.Employee使用emp替代-->
+
+        <!-- 包配置 默认规则 类首字母小写 就是别名 employee -->
+        <package name="com.lixiuchun.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!-- <mapper resource="com.lixiuchun.mapper/EmployeeMapper.xml"/>-->
+        <!-- 将包内的映射器接口实现全部注册为映射器 -->
+        <package name="com.lixiuchun.mapper"/>
+
+    </mappers>
+
+
+</configuration>
